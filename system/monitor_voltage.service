@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitor voltages from MCP3008 and output to /tmp/MCP3008_v0
+StartLimitBurst=5
+StartLimitIntervalSec=10
+
+[service]
+Type=simple
+Restart=always
+RestartSec=1
+User=pi
+ExecStart=/usr/bin/env python3 /usr/bin/monitor.py
