@@ -16,7 +16,7 @@ cs = digitalio.DigitalInOut(board.D5)
 # create MCP object
 mcp = MCP.MCP3008(spi, cs)
 
-# create an analog input channel
+# create analog input channels
 chan = [AnalogIn(mcp, MCP.P0), 
         AnalogIn(mcp, MCP.P1), 
         AnalogIn(mcp, MCP.P2), 
@@ -26,8 +26,8 @@ chan = [AnalogIn(mcp, MCP.P0),
         AnalogIn(mcp, MCP.P6), 
         AnalogIn(mcp, MCP.P7)]
 
-
-
+# we will store our values (since powered on) here
+# note: add permanent storage later at a less frequent interval
 f = open("/tmp/MCP3008_v.csv", "w+")
 
 while 1:
@@ -40,11 +40,4 @@ while 1:
     f.write(str(chan[5].voltage) + ',')
     f.write(str(chan[6].voltage) + ',')
     f.write(str(chan[7].voltage) + '\n')
-    time.sleep(1)
-#    print(str(chan.voltage) + ' Vdc', end='\r')
-#    i = chan.value
-#    while(i > 0):
-#        print('#', end='')
-#        i -= 111;
-#    print('')
-#    time.sleep(.001)
+    time.sleep(10)
