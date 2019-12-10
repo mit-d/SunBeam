@@ -28,17 +28,18 @@ chan = [AnalogIn(mcp, MCP.P0),
 
 
 
-f = open("/tmp/MCP3008_v0", "w+")
+f = open("/tmp/MCP3008_v.csv", "w+")
 
 while 1:
-    f.write(str(chan[0].voltage) + ' Vdc,\t')
-    f.write(str(chan[1].voltage) + ' Vdc,\t')
-    f.write(str(chan[2].voltage) + ' Vdc,\t')
-    f.write(str(chan[3].voltage) + ' Vdc,\t')
-    f.write(str(chan[4].voltage) + ' Vdc,\t')
-    f.write(str(chan[5].voltage) + ' Vdc,\t')
-    f.write(str(chan[6].voltage) + ' Vdc,\t')
-    f.write(str(chan[7].voltage) + ' Vdc\n')
+    f.write(time.time() + ',');
+    f.write(str(chan[0].voltage) + ',')
+    f.write(str(chan[1].voltage) + ',')
+    f.write(str(chan[2].voltage) + ',')
+    f.write(str(chan[3].voltage) + ',')
+    f.write(str(chan[4].voltage) + ',')
+    f.write(str(chan[5].voltage) + ',')
+    f.write(str(chan[6].voltage) + ',')
+    f.write(str(chan[7].voltage) + '\n')
     time.sleep(1)
 #    print(str(chan.voltage) + ' Vdc', end='\r')
 #    i = chan.value
