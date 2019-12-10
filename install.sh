@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "This script will set up the raspberry pi as SUNBEAM"
+
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
 echo "Installing binaries to /usr/local/bin" && stow -Rt /usr/local/bin bin
